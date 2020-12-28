@@ -6,6 +6,10 @@ import socket
 import rospy
 from sensor_msgs.msg import Range
 from robotcar_msgs.msg import RelativeVelocity
+import numpy as np
+import matplotlib.pyplot as plt
+plt.style.use('seaborn')
+plt.ion()
 
 class RearIRSubscriber(object):
 
@@ -15,11 +19,14 @@ class RearIRSubscriber(object):
         # callback function.
         self.robot_host = robot_host
         self.sub = rospy.Subscriber(self.robot_host + '/infrared/rear/distance', Range, self.callback)
-        self.velocitySub = rospy.Subscriber(self.robot_host + '/infrared/rear/relative_velocity', RelativeVelocity, self.velocityCallback)
 
         # Initialize message variables.
         self.enable = False
         self.data = ""
+
+        self.x0 = []
+        self.y0 = []
+        self.i = 0
 
         if self.enable:
             self.start()
@@ -29,13 +36,11 @@ class RearIRSubscriber(object):
     def start(self):
         self.enable = True
         self.sub = rospy.Subscriber(self.robot_host + '/infrared/rear/distance', Range, self.callback)
-        self.velocitySub = rospy.Subscriber(self.robot_host + '/infrared/rear/relative_velocity', RelativeVelocity, self.velocityCallback)
 
     def stop(self):
         """Turn off subscriber."""
         self.enable = False
         self.sub.unregister()
-        self.velocitySub.unregister()
 
     def callback(self, data):
         """Handle subscriber data."""
@@ -44,11 +49,24 @@ class RearIRSubscriber(object):
         msg = "Got type %s with FoV %s and Min-Range %s and Max-Range %s and measured Range %s" % (self.data.radiation_type, self.data.field_of_view, self.data.min_range, self.data.max_range, self.data.range)
         rospy.loginfo(rospy.get_caller_id() + msg)
 
-    def velocityCallback(self, data):
-        """Handle subscriber data."""
-        # Simply print out values in our custom message.
-        msg = "Got type %s with FoV %s and measured Relative Velocity %s" % (data.radiation_type, data.field_of_view, data.relative_velocity)
-        rospy.loginfo(rospy.get_caller_id() + msg)
+        self.x0.append(self.i)
+        self.y0.append(self.data.range)
+
+        self.i = self.i + 1
+
+        plt.ylim(0, 300)
+        plt.yticks(np.arange(0, 300, step=20))
+        plt.xlim(left=max(0, self.i-50), right=self.i+40)
+
+        plt.ylabel('OBJECT DISTANCE (cm)', fontname='monospace', color='black', fontsize=14)
+        plt.title('REAR INFRARED SENSOR - ENVIRONMENT MAP', fontname='monospace', color='black', fontsize=16)
+
+        p1, = plt.plot(self.x0, self.y0, color='b')
+        plt.legend([p1], ['INFRARED Reading'], prop={'family': 'monospace'}, loc='upper right', frameon=True)
+
+        plt.grid(True)
+        plt.show()
+        plt.pause(.000001)
 
 if __name__ == '__main__':
     # Initialize the node and name it.
