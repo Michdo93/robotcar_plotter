@@ -1,11 +1,11 @@
-# robotcar_subscriber
+# robotcar_plotter
 
 
 Gives an example how you can use Subscribers for plotting sensor informations from the [RobotCar](https://github.com/Michdo93/robotcar) using matplotlib. At first you have to make sure that the roscore is running and the [robotcar-pkg](https://github.com/Michdo93/robotcar-pkg) is publishing the sensor informations.
 
 The String variable `robot_host` uses the hostname of one RobotCar. As example it could be `robotcar`.
 
-A robotcar_subscriber could be used as blue print for subscribing informations for a ADAS.
+A [robotcar_subscriber](https://github.com/Michdo93/robotcar_subscriber) could be used as blue print for subscribing informations for an ADAS. The robotcar_plotter could be used as example for visualize this informations.
 
 ## FrontIRPlotter Node
 
