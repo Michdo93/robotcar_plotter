@@ -5,13 +5,12 @@ import re
 import socket
 import rospy
 from sensor_msgs.msg import Range
-from robotcar_msgs.msg import RelativeVelocity
 import numpy as np
 import matplotlib.pyplot as plt
 plt.style.use('seaborn')
 plt.ion()
 
-class RearLeftUltrasonicSubscriber(object):
+class RearLeftUltrasonicPlotter(object):
 
     def __init__(self, robot_host):
         """Configure subscriber."""
@@ -70,10 +69,10 @@ class RearLeftUltrasonicSubscriber(object):
 
 if __name__ == '__main__':
     # Initialize the node and name it.
-    node_name = re.sub("-", "_", socket.gethostname()) + "_RearLeftUltrasonicSubscriber"
+    node_name = re.sub("-", "_", socket.gethostname()) + "_RearLeftUltrasonicPlotter"
     rospy.init_node(node_name, anonymous=False)
     
-    ultrasonic = RearLeftUltrasonicSubscriber("robotcar")
+    ultrasonic = RearLeftUltrasonicPlotter("robotcar")
     
     # Go to the main loop
     try:
