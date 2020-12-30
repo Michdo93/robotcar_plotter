@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 plt.style.use('seaborn')
 plt.ion()
 
-class FrontToFSubscriber(object):
+class FrontToFPlotter(object):
 
     def __init__(self, robot_host):
         """Configure subscriber."""
@@ -70,11 +70,11 @@ class FrontToFSubscriber(object):
 
 if __name__ == '__main__':
     # Initialize the node and name it.
-    node_name = re.sub("-", "_", socket.gethostname()) + "_FrontToFSubscriber"
+    node_name = re.sub("-", "_", socket.gethostname()) + "_FrontToFPlotter"
 
     rospy.init_node(node_name, anonymous=False)
     
-    tof = FrontToFSubscriber("robotcar")
+    tof = FrontToFPlotter("robotcar")
     
     # Go to the main loop
     try:
