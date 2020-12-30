@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 plt.style.use('seaborn')
 plt.ion()
 
-class RearIRSubscriber(object):
+class RearIRPlotter(object):
 
     def __init__(self, robot_host):
         """Configure subscriber."""
@@ -70,10 +70,10 @@ class RearIRSubscriber(object):
 
 if __name__ == '__main__':
     # Initialize the node and name it.
-    node_name = re.sub("-", "_", socket.gethostname()) + "_RearIRSubscriber"
+    node_name = re.sub("-", "_", socket.gethostname()) + "_RearIRPlotter"
     rospy.init_node(node_name, anonymous=False)
     
-    infrared = RearIRSubscriber("robotcar")
+    infrared = RearIRPlotter("robotcar")
     
     # Go to the main loop
     try:
