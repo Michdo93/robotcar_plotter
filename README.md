@@ -35,7 +35,7 @@ It subscribes informations from the FrontRightUltrasonic Node of the [robotcar-p
 |------------------------------------------------------ | --------------------------------|
 |robot_host + /ultrasonic/front/right/distance          | [sensor_msgs/Range](http://docs.ros.org/en/api/sensor_msgs/html/msg/Range.html)             |
 
-You can run it with `rosrun robotcar_potter frontRightUltrasonicPlotter.py`
+You can run it with `rosrun robotcar_plotter frontRightUltrasonicPlotter.py`
 
 ## FrontTofPlotter Node
 
