@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 plt.style.use('seaborn')
 plt.ion()
 
-class FrontLeftUltrasonicSubscriber(object):
+class FrontLeftUltrasonicPlotter(object):
 
     def __init__(self, robot_host):
         """Configure subscriber."""
@@ -70,10 +70,10 @@ class FrontLeftUltrasonicSubscriber(object):
 
 if __name__ == '__main__':
     # Initialize the node and name it.
-    node_name = re.sub("-", "_", socket.gethostname()) + "_FrontLeftUltrasonicSubscriber"
+    node_name = re.sub("-", "_", socket.gethostname()) + "_FrontLeftUltrasonicPlotter"
     rospy.init_node(node_name, anonymous=False)
     
-    ultrasonic = FrontLeftUltrasonicSubscriber("robotcar")
+    ultrasonic = FrontLeftUltrasonicPlotter("robotcar")
     
     # Go to the main loop
     try:
