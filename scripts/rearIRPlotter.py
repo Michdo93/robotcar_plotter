@@ -5,7 +5,6 @@ import re
 import socket
 import rospy
 from sensor_msgs.msg import Range
-from robotcar_msgs.msg import RelativeVelocity
 import numpy as np
 import matplotlib.pyplot as plt
 plt.style.use('seaborn')
