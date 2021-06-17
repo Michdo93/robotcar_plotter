@@ -7,6 +7,14 @@ The String variable `robot_host` uses the hostname of one RobotCar. As example i
 
 A [robotcar_subscriber](https://github.com/Michdo93/robotcar_subscriber) could be used as blue print for subscribing informations for an ADAS. The robotcar_plotter could be used as example for visualize this informations.
 
+## Rrerequisites
+
+```
+cd ~/catkin_ws/src
+git clone https://github.com/ros/common_msgs.git
+cd .. && catkin_make
+```
+
 ## FrontIRPlotter Node
 
 It subscribes informations from the FrontInfrared Node of the [robotcar-pkg](https://github.com/Michdo93/robotcar-pkg) respectively the front infrared sensor.
