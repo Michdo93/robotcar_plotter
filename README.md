@@ -17,6 +17,8 @@ cd .. && catkin_make
 
 ## FrontIRPlotter Node
 
+![FrontIRPlotter](https://raw.githubusercontent.com/Michdo93/robotcar_plotter/main/frontIRPlotter.JPG)
+
 It subscribes informations from the FrontInfrared Node of the [robotcar-pkg](https://github.com/Michdo93/robotcar-pkg) respectively the front infrared sensor.
 
 |                       Topic Address                   |             Message Type        |
@@ -26,6 +28,8 @@ It subscribes informations from the FrontInfrared Node of the [robotcar-pkg](htt
 You can run it with `rosrun robotcar_plotter frontIRPlotter.py`
 
 ## FrontLeftUltrasonicPlotter Node
+
+![FrontLeftUltrasonicPlotter](https://raw.githubusercontent.com/Michdo93/robotcar_plotter/main/frontLeftUltrasonicPlotter.JPG)
 
 It subscribes informations from the FrontLeftUltrasonic Node of the [robotcar-pkg](https://github.com/Michdo93/robotcar-pkg) respectively the left front ultrasonic sensor.
 
@@ -37,6 +41,8 @@ You can run it with `rosrun robotcar_plotter frontLeftUltrasonicPlotter.py`
 
 ## FrontRightUltrasonicPlotter Node
 
+![FrontRightUltrasonicPlotter](https://raw.githubusercontent.com/Michdo93/robotcar_plotter/main/frontRightUltrasonicPlotter.JPG)
+
 It subscribes informations from the FrontRightUltrasonic Node of the [robotcar-pkg](https://github.com/Michdo93/robotcar-pkg) respectively the right front ultrasonic sensor.
 
 |                       Topic Address                   |             Message Type        |
@@ -46,6 +52,8 @@ It subscribes informations from the FrontRightUltrasonic Node of the [robotcar-p
 You can run it with `rosrun robotcar_plotter frontRightUltrasonicPlotter.py`
 
 ## FrontTofPlotter Node
+
+![FrontTofPlotter](https://raw.githubusercontent.com/Michdo93/robotcar_plotter/main/frontToFPlotter.JPG)
 
 It subscribes informations from the FrontTimeOfFlight Node of the [robotcar-pkg](https://github.com/Michdo93/robotcar-pkg) respectively the front time-of-flight sensor.
 
@@ -57,6 +65,8 @@ You can run it with `rosrun robotcar_plotter frontToFPlotter.py`
 
 ## FrontUltrasonicPlotter Node
 
+![FrontUltrasonicPlotter](https://raw.githubusercontent.com/Michdo93/robotcar_plotter/main/frontUltrasonicPlotter.JPG)
+
 It subscribes informations from the FrontUltrasonic Node of the [robotcar-pkg](https://github.com/Michdo93/robotcar-pkg) respectively the front ultrasonic sensor.
 
 |                       Topic Address                   |             Message Type        |
@@ -66,6 +76,8 @@ It subscribes informations from the FrontUltrasonic Node of the [robotcar-pkg](h
 You can run it with `rosrun robotcar_plotter frontUltrasonicPlotter.py`
 
 ## RearIRPlotter Node
+
+![RearIRPlotter](https://raw.githubusercontent.com/Michdo93/robotcar_plotter/main/rearIRPlotter.JPG)
 
 It subscribes informations from the RearInfrared Node of the [robotcar-pkg](https://github.com/Michdo93/robotcar-pkg) respectively the rear infrared sensor.
 
@@ -77,6 +89,8 @@ You can run it with `rosrun robotcar_plotter rearIRPlotter.py`
 
 ## RearLeftUltrasonicPlotter Node
 
+![RearLeftUltrasonicPlotter](https://raw.githubusercontent.com/Michdo93/robotcar_plotter/main/rearLeftUltrasonicPlotter.JPG)
+
 It subscribes informations from the RearLeftUltrasonic Node of the [robotcar-pkg](https://github.com/Michdo93/robotcar-pkg) respectively the left rear ultrasonic sensor.
 
 |                       Topic Address                   |             Message Type        |
@@ -86,6 +100,8 @@ It subscribes informations from the RearLeftUltrasonic Node of the [robotcar-pkg
 You can run it with `rosrun robotcar_plotter rearLeftUltrasonicPlotter.py`
 
 ## RearRightUltrasonicPlotter Node
+
+![RearRightUltrasonicPlotter](https://raw.githubusercontent.com/Michdo93/robotcar_plotter/main/rearRightUltrasoncPlotter.JPG)
 
 It subscribes informations from the RearRightUltrasonic Node of the [robotcar-pkg](https://github.com/Michdo93/robotcar-pkg) respectively the right rear ultrasonic sensor.
 
@@ -97,6 +113,8 @@ You can run it with `rosrun robotcar_plotter rearRightUltrasonicPlotter.py`
 
 ## RearToFPlotter Node
 
+![RearToFPlotter](https://raw.githubusercontent.com/Michdo93/robotcar_plotter/main/rearTofPlotter.JPG)
+
 It subscribes informations from the RearTimeOfFlight Node of the [robotcar-pkg](https://github.com/Michdo93/robotcar-pkg) respectively the rear time-of-flight sensor.
 
 |                       Topic Address                   |             Message Type        |
@@ -106,6 +124,8 @@ It subscribes informations from the RearTimeOfFlight Node of the [robotcar-pkg](
 You can run it with `rosrun robotcar_plotter rearToFPlotter.py`
 
 ## RearUltrasonicPlotter Node
+
+![RearUltrasonicPlotter](https://raw.githubusercontent.com/Michdo93/robotcar_plotter/main/rearUltrasonicPlotter.JPG)
 
 It subscribes informations from the RearUltrasonic Node of the [robotcar-pkg](https://github.com/Michdo93/robotcar-pkg) respectively the rear ultrasonic sensor.
 
