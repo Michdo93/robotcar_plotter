@@ -20,7 +20,7 @@ class CompassPlotter(object):
         # Create a subscriber with appropriate topic, custom message and name of
         # callback function.
         self.robot_host = robot_host
-        self.sub = rospy.Subscriber(self.robot_host + '/imu/magnetometer/raw', Magnetometer, self.callback)
+        self.sub = rospy.Subscriber(self.robot_host + '/imu/magnetometer', Magnetometer, self.callback)
 
         # Initialize message variables.
         self.enable = False
@@ -28,7 +28,6 @@ class CompassPlotter(object):
 
         self.fig = plt.figure(num='Compass', figsize=[5, 3])
         self.ax = plt.subplot(projection='polar')
-        self.i = 0
 
         if self.enable:
             self.start()
@@ -37,7 +36,7 @@ class CompassPlotter(object):
 
     def start(self):
         self.enable = True
-        self.sub = rospy.Subscriber(self.robot_host + '/imu/magnetometer/raw', Magnetometer, self.callback)
+        self.sub = rospy.Subscriber(self.robot_host + '/imu/magnetometer', Magnetometer, self.callback)
 
     def stop(self):
         """Turn off subscriber."""
@@ -48,7 +47,8 @@ class CompassPlotter(object):
         """Handle subscriber data."""
         # Simply print out values in our custom message.
         self.data = data
-        north = self.data.north
+        msg = "Got imu/magnetometer: North: %s" % self.data.north
+        rospy.loginfo(rospy.get_caller_id() + msg)
     
         self.ax.clear()
         self.ax.set_theta_zero_location("N")
@@ -56,7 +56,7 @@ class CompassPlotter(object):
         self.ax.set_ylim(top=1)
         
         # arrow at 45 degree
-        plt.arrow(north/180.*np.pi, 0.0, 0, 1, alpha = 0.5, width = 0.015,
+        plt.arrow(self.data.north/180.*np.pi, 0.0, 0, 1, alpha = 0.5, width = 0.015,
                         edgecolor = 'black', facecolor = 'green', lw = 2, zorder = 5)
 
         plt.show()

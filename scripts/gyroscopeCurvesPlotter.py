@@ -24,6 +24,7 @@ class GyroscopeCurvesPlotter(object):
         # Initialize message variables.
         self.enable = False
         self.data = ""
+        self.i = 0
 
         self.x = []
         self.y = []
@@ -48,11 +49,13 @@ class GyroscopeCurvesPlotter(object):
         """Handle subscriber data."""
         # Simply print out values in our custom message.
         self.data = data
+        self.i = self.i + 1
 
         self.x.append(self.data.x)
         self.y.append(self.data.y)
         self.z.append(self.data.z)
-        self.c.append(self.data.header.stamp)
+        # self.c.append(self.data.header.stamp)
+        self.c.append(self.i)
 
         plt.clf()
 

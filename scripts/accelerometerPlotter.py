@@ -28,7 +28,7 @@ class AccelerometerPlotter(object):
         self.data = ""
 
         self.fig = plt.figure()
-        self.ax = fig.add_subplot(111, projection='3d')
+        self.ax = self.fig.add_subplot(111, projection='3d')
 
         if self.enable:
             self.start()

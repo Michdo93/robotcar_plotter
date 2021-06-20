@@ -21,14 +21,13 @@ class GyroscopePlotter(object):
         # Create a subscriber with appropriate topic, custom message and name of
         # callback function.
         self.robot_host = robot_host
-        self.sub = rospy.Subscriber(self.robot_host + '/imu/gyroscope', gyroscope, self.callback)
+        self.sub = rospy.Subscriber(self.robot_host + '/imu/gyroscope', Gyroscope, self.callback)
 
         # Initialize message variables.
         self.enable = False
         self.data = ""
 
         self.fig = plt.figure()
-        self.ax = fig.add_subplot(111, projection='3d')
 
         if self.enable:
             self.start()
@@ -37,7 +36,7 @@ class GyroscopePlotter(object):
 
     def start(self):
         self.enable = True
-        self.sub = rospy.Subscriber(self.robot_host + '/imu/gyroscope', gyroscope, self.callback)
+        self.sub = rospy.Subscriber(self.robot_host + '/imu/gyroscope', Gyroscope, self.callback)
 
     def stop(self):
         """Turn off subscriber."""
@@ -48,9 +47,10 @@ class GyroscopePlotter(object):
         """Handle subscriber data."""
         # Simply print out values in our custom message.
         self.data = data
-
+        
+        self.ax = self.fig.add_subplot(111, projection='3d')
         self.ax.clear()
-
+        
         x1 = 100 * (math.cos(self.data.z) * math.cos(self.data.y))
         y1 = 100 * (math.cos(self.data.x) * math.sin(self.data.y) + math.cos(self.data.y) * math.sin(self.data.x) * math.sin(self.data.z))
 

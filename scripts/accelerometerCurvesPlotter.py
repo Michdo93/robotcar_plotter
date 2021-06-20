@@ -6,8 +6,10 @@ import socket
 import rospy
 from robotcar_msgs.msg import Accelerometer
 import numpy as np
+import pandas
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
+from matplotlib.dates import DateFormatter, date2num
 from mpl_toolkits import mplot3d
 plt.style.use('seaborn')
 plt.ion()
@@ -19,11 +21,12 @@ class AccelerometerCurvesPlotter(object):
         # Create a subscriber with appropriate topic, custom message and name of
         # callback function.
         self.robot_host = robot_host
-        self.sub = rospy.Subscriber(self.robot_host + '/imu/accelerometer/raw', accelerometer, self.callback)
+        self.sub = rospy.Subscriber(self.robot_host + '/imu/accelerometer/raw', Accelerometer, self.callback)
 
         # Initialize message variables.
         self.enable = False
         self.data = ""
+        self.i = 0
 
         self.x = []
         self.y = []
@@ -37,7 +40,7 @@ class AccelerometerCurvesPlotter(object):
 
     def start(self):
         self.enable = True
-        self.sub = rospy.Subscriber(self.robot_host + '/imu/accelerometer/raw', accelerometer, self.callback)
+        self.sub = rospy.Subscriber(self.robot_host + '/imu/accelerometer/raw', Accelerometer, self.callback)
 
     def stop(self):
         """Turn off subscriber."""
@@ -48,11 +51,13 @@ class AccelerometerCurvesPlotter(object):
         """Handle subscriber data."""
         # Simply print out values in our custom message.
         self.data = data
+        self.i = self.i + 1
 
         self.x.append(self.data.x)
         self.y.append(self.data.y)
         self.z.append(self.data.z)
-        self.c.append(self.data.header.stamp)
+        # self.c.append(pandas.to_datetime(self.data.header.stamp,format="%H:%M"))
+        self.c.append(self.i)
 
         plt.clf()
 
