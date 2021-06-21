@@ -15,6 +15,42 @@ git clone https://github.com/ros/common_msgs.git
 cd .. && catkin_make
 ```
 
+## AccelerometerCurvesPlotter Node
+
+![accelerometerCurvesPlotter](https://raw.githubusercontent.com/Michdo93/robotcar_plotter/main/accelerometerCurvesPlotter.JPG)
+
+It subscribes informations from the IMU Node of the [robotcar-pkg](https://github.com/Michdo93/robotcar-pkg).
+
+|                       Topic Address                   |             Message Type        |
+|------------------------------------------------------ | --------------------------------|
+|robot_host + /imu/accelerometer/raw                        | [robotcar_msgs/Accelerometer](https://github.com/Michdo93/robotcar_msgs/blob/master/doku/Accelerometer.md)    |
+
+You can run it with `rosrun robotcar_plotter accelerometerCurvesPlotter.py`
+
+## AccelerometerPlotter Node
+
+![accelerometerPlotter](https://raw.githubusercontent.com/Michdo93/robotcar_plotter/main/accelerometerPlotter.JPG)
+
+It subscribes informations from the IMU Node of the [robotcar-pkg](https://github.com/Michdo93/robotcar-pkg).
+
+|                       Topic Address                   |             Message Type        |
+|------------------------------------------------------ | --------------------------------|
+|robot_host + /imu/accelerometer                        | [robotcar_msgs/Accelerometer](https://github.com/Michdo93/robotcar_msgs/blob/master/doku/Accelerometer.md)    |
+
+You can run it with `rosrun robotcar_plotter accelerometerPlotter.py`
+
+## Compass Node
+
+![compass](https://raw.githubusercontent.com/Michdo93/robotcar_plotter/main/compassPlotter.JPG)
+
+It subscribes informations from the IMU Node of the [robotcar-pkg](https://github.com/Michdo93/robotcar-pkg).
+
+|                       Topic Address                   |             Message Type        |
+|------------------------------------------------------ | --------------------------------|
+|robot_host + /imu/magenetometer                        | [robotcar_msgs/Magnetometer](https://github.com/Michdo93/robotcar_msgs/blob/master/doku/Magnetometer.md)     |
+
+You can run it with `rosrun robotcar_plotter compass.py`
+
 ## FrontIRPlotter Node
 
 ![FrontIRPlotter](https://raw.githubusercontent.com/Michdo93/robotcar_plotter/main/frontIRPlotter.JPG)
@@ -74,6 +110,31 @@ It subscribes informations from the FrontUltrasonic Node of the [robotcar-pkg](h
 |robot_host + /ultrasonic/front/distance                | [sensor_msgs/Range](http://docs.ros.org/en/api/sensor_msgs/html/msg/Range.html)             |
 
 You can run it with `rosrun robotcar_plotter frontUltrasonicPlotter.py`
+
+## GyroscopeCurvesPlotter Node
+
+![gyroscopeCurvesPlotter](https://raw.githubusercontent.com/Michdo93/robotcar_plotter/main/gyroscopeCurvesPlotter.JPG)
+
+It subscribes informations from the IMU Node of the [robotcar-pkg](https://github.com/Michdo93/robotcar-pkg).
+
+|                       Topic Address                   |             Message Type        |
+|------------------------------------------------------ | --------------------------------|
+|robot_host + /imu/gyroscope/raw                        | [robotcar_msgs/Gyroscope](https://github.com/Michdo93/robotcar_msgs/blob/master/doku/Gyroscope.md)        |
+
+You can run it with `rosrun robotcar_plotter gyroscopeCurvesPlotter.py`
+
+## GyroscopePlotter Node
+
+![gyroscopePlotter](https://raw.githubusercontent.com/Michdo93/robotcar_plotter/main/gyroscopePlotter.JPG)
+
+It subscribes informations from the IMU Node of the [robotcar-pkg](https://github.com/Michdo93/robotcar-pkg).
+
+|                       Topic Address                   |             Message Type        |
+|------------------------------------------------------ | --------------------------------|
+|robot_host + /imu/gyroscope                       | [robotcar_msgs/Gyroscope](https://github.com/Michdo93/robotcar_msgs/blob/master/doku/Gyroscope.md)        |
+
+You can run it with `rosrun robotcar_plotter gyroscopePlotter.py`
+
 
 ## RearIRPlotter Node
 
